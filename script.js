@@ -12,7 +12,7 @@ const GOOGLE_FORM_URL = "https://forms.gle/pXWGGPSC7BGVWjNo9";
 const weddingDate = new Date("2026-11-21T20:00:00+05:30");
 
 window.addEventListener("load", () => {
-  setTimeout(() => document.getElementById("preloader").classList.add("hide"), 3000);
+  setTimeout(() => document.getElementById("preloader").classList.add("hide"), 2000);
 });
 
 // Countdown
