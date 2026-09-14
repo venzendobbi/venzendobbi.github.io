@@ -22,7 +22,7 @@ a{text-decoration:none;color:inherit}button{font:inherit}
    about the body (far left of the shape) so the wings fold toward it. */
 .mono-bf{transform-box:fill-box;transform-origin:50% 60%}
 .mono-butterfly{transform-box:fill-box;transform-origin:6% 82%}
-.cover-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:14px}
+.cover-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:18px}
 .cover-nav a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 24px;
   border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.5);
   font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
@@ -31,15 +31,6 @@ a{text-decoration:none;color:inherit}button{font:inherit}
 .cover-nav a:active{transform:translateY(0);box-shadow:none}
 .cover-nav a.primary{border-color:var(--accent);color:var(--accent-deep);background:rgba(157,119,113,.1)}
 .cover-nav a.primary:hover{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff;box-shadow:0 10px 22px rgba(125,84,79,.3)}
-/* Deliberately not a pill — a quieter register so it sits under the nav row
-   without competing with it. */
-.save-card{display:inline-flex;align-items:center;gap:8px;margin:14px auto 0;
-  font-size:.57rem;letter-spacing:.19em;text-transform:uppercase;color:var(--accent);
-  padding-bottom:5px;border-bottom:1px solid transparent;transition:color .28s,border-color .28s}
-.save-card svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.7;
-  stroke-linecap:round;stroke-linejoin:round;transition:transform .28s}
-.save-card:hover{color:var(--accent-deep);border-bottom-color:currentColor}
-.save-card:hover svg{transform:translateY(2px)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .cover-copy{z-index:3;text-align:center;margin:0 auto}
 .micro{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin:0}
@@ -48,7 +39,7 @@ a{text-decoration:none;color:inherit}button{font:inherit}
 .cover-copy h1{font-family:var(--serif);font-weight:400;text-transform:uppercase;letter-spacing:.16em;font-size:clamp(3.5rem,7.4vw,6.4rem);line-height:.8;margin:6px 0 14px}
 .names{font-family:var(--script);font-size:3.5rem;color:#6d625e;margin:0 0 12px}.names span{font-family:var(--serif);font-size:1.3rem;color:var(--accent)}
 .date{font-size:.66rem;letter-spacing:.3em;margin:0}.place{font-size:.55rem;letter-spacing:.22em;color:var(--muted)}
-.round-arrow{display:grid;place-items:center;width:48px;height:48px;border:1px solid var(--line);border-radius:50%;margin:10px auto 0;font-size:1.1rem;transition:.3s}.round-arrow:hover{background:var(--ink);color:var(--paper)}
+.round-arrow{display:grid;place-items:center;width:48px;height:48px;border:1px solid var(--line);border-radius:50%;margin:14px auto 0;font-size:1.1rem;transition:.3s}.round-arrow:hover{background:var(--ink);color:var(--paper)}
 /* A flex item, not absolute: the copy can never collide with it. The two auto
    margins here and on .cover-copy split the free space, centring them as a pair. */
 .butterfly{position:static;z-index:1;width:min(215px,46vw,26vh);margin:24px auto 16px;pointer-events:none}
