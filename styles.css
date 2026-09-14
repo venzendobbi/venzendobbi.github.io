@@ -19,7 +19,10 @@ a{text-decoration:none;color:inherit}button{font:inherit}
    independently of the lettering. */
 .monogram-mark{height:74px;width:auto;display:block;overflow:visible}
 .mono-script,.mono-butterfly{fill:#1c1917}
-.mono-butterfly{transform-box:fill-box;transform-origin:50% 70%}
+/* Two nested transforms: the group drifts, the path flaps. The flap scales
+   about the body (far left of the shape) so the wings fold toward it. */
+.mono-bf{transform-box:fill-box;transform-origin:50% 60%}
+.mono-butterfly{transform-box:fill-box;transform-origin:6% 82%}
 .cover-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:18px}
 .cover-nav a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 24px;
   border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.5);
@@ -105,13 +108,17 @@ h2 em{font-style:normal;color:var(--accent)}
 .event-body h3{font-family:var(--serif);font-size:2.4rem;line-height:.92;font-weight:400;margin:0 0 16px}
 .event-body h3 em{color:var(--accent);font-style:normal}
 .event-body p:not(.micro):not(.event-time):not(.event-theme),.event-body span:not(.when-inline):not(.event-theme span){font-size:.75rem;line-height:1.6;color:var(--muted)}
-/* Dashed pill keeps the dress note playful rather than reading as a rule. */
-.event-theme{display:inline-flex;align-items:baseline;gap:9px;margin:16px 0 0;padding:8px 15px;
-  border:1px dashed var(--ec,var(--accent));border-radius:999px;
-  font-size:.63rem;font-weight:500;letter-spacing:.11em;text-transform:uppercase;
+/* A soft tinted chip — lighter than a bordered pill, and the label sits in its
+   own solid swatch so the pair reads as one little badge. */
+.event-theme{display:inline-flex;align-items:stretch;margin:16px 0 0;overflow:hidden;
+  border-radius:4px;background:color-mix(in srgb,var(--ec,var(--accent)) 12%,transparent);
+  font-size:.63rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
   color:var(--ec,var(--accent));transition:background .3s ease}
-.event-theme span{font-size:.55rem;letter-spacing:.16em;opacity:.6}
-.event-card:hover .event-theme{background:color-mix(in srgb,var(--ec,var(--accent)) 10%,transparent)}
+.event-theme span{display:inline-flex;align-items:center;padding:7px 10px;margin-right:11px;
+  background:color-mix(in srgb,var(--ec,var(--accent)) 22%,transparent);
+  font-size:.54rem;letter-spacing:.15em;opacity:.85}
+.event-theme{padding-right:14px;align-items:center}
+.event-card:hover .event-theme{background:color-mix(in srgb,var(--ec,var(--accent)) 20%,transparent)}
 .event-body a{display:inline-block;font-size:.62rem;text-transform:uppercase;letter-spacing:.13em;border-bottom:1px solid var(--ink);padding-bottom:4px;margin-top:14px}
 .countdown{position:relative;text-align:center;padding:140px 7vw;background:#514945;color:#f5eee8;overflow:hidden}.countdown:before{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(244,238,232,.14);border-radius:50%;left:-170px;top:-100px}.countdown:after{content:"";position:absolute;width:350px;height:350px;border:1px solid rgba(244,238,232,.1);border-radius:50%;right:-130px;bottom:-150px}.countdown-inner{position:relative}.countdown-decor{font-size:1rem;color:#c7a49d}.countdown .micro{color:#c7b9b1}.countdown h2{font-size:clamp(3.2rem,6vw,5.5rem)}.countdown h2 em{color:#d1aaa2}
 .timer{display:grid;grid-template-columns:repeat(4,1fr);max-width:700px;margin:55px auto 0}.timer div{border-right:1px solid rgba(244,238,232,.18)}.timer div:last-child{border:0}.timer strong{font-family:var(--serif);font-weight:400;font-size:4rem;display:block}.timer span{text-transform:uppercase;letter-spacing:.17em;font-size:.52rem;color:#c7b9b1}
@@ -134,7 +141,8 @@ h2 em{font-style:normal;color:var(--accent)}
 .event-body a:hover,.map-link:hover{color:var(--ec,var(--accent));border-color:var(--ec,var(--accent))}
 .timer div{transition:.3s}.timer div:hover strong{color:#e8c3bb}.rsvp-button.disabled{opacity:.45;cursor:not-allowed}.rsvp-copy small{color:var(--muted);font-size:.57rem;line-height:1.5;margin-top:14px;max-width:360px}
 footer{position:relative;overflow:hidden;background:#3c3734;color:#eee5df;text-align:center;padding:75px 20px}
-.footer-logo{width:110px;height:auto;filter:invert(1) sepia(.15) brightness(.95);opacity:.9;margin-bottom:8px}
+.footer-mark{height:92px;width:auto;margin:0 auto 8px;opacity:.92}
+.footer-mark .mono-script,.footer-mark .mono-butterfly{fill:#eee5df}
 footer p{font-family:var(--script);font-size:2rem;color:#cdb8b0}.footer small{font-size:.5rem;letter-spacing:.2em;color:#958983}
 @media(max-width:800px){
   .cover{min-height:650px}.cover:after{inset:10px}.topbar{padding:8px 8vw 0}
@@ -179,7 +187,8 @@ footer p{font-family:var(--script);font-size:2rem;color:#cdb8b0}.footer small{fo
   .timer strong.tick{animation:pop .5s ease-out}
   .round-arrow{animation:nudge 2.8s ease-in-out infinite}
   .round-arrow:hover{animation-play-state:paused}
-  .mono-butterfly{animation:mono-flutter 5.5s ease-in-out infinite}
+  .mono-bf{animation:mono-flutter 5.5s ease-in-out infinite}
+  .mono-butterfly{animation:mono-flap 1.5s ease-in-out infinite}
 }
 @keyframes rise{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
@@ -190,10 +199,14 @@ footer p{font-family:var(--script);font-size:2rem;color:#cdb8b0}.footer small{fo
 @keyframes pop{0%{transform:translateY(-6px);opacity:.35}60%{transform:translateY(0)}100%{opacity:1}}
 @keyframes nudge{0%,72%,100%{transform:translateY(0)}82%{transform:translateY(5px)}92%{transform:translateY(0)}}
 @keyframes mono-flutter{
-  0%,100%{transform:translate(0,0) rotate(0deg) scaleX(1)}
-  20%{transform:translate(3%,-9%) rotate(-7deg) scaleX(.94)}
-  45%{transform:translate(6%,-4%) rotate(4deg) scaleX(1)}
-  70%{transform:translate(1%,-7%) rotate(-3deg) scaleX(.97)}
+  0%,100%{transform:translate(0,0) rotate(0deg)}
+  20%{transform:translate(3%,-9%) rotate(-7deg)}
+  45%{transform:translate(6%,-4%) rotate(4deg)}
+  70%{transform:translate(1%,-7%) rotate(-3deg)}
+}
+@keyframes mono-flap{
+  0%,100%{transform:scaleX(1) scaleY(1)}
+  50%{transform:scaleX(.7) scaleY(1.05)}
 }
 @keyframes flap-soft-left{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.9)}}
 @keyframes flap-soft-right{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.9)}}
