@@ -12,7 +12,6 @@ a{text-decoration:none;color:inherit}button{font:inherit}
 /* justify-content centres monogram + butterfly + copy as one block, so the
    whitespace above the logo matches the whitespace below the arrow. */
 .cover{height:100svh;min-height:720px;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding-bottom:10px;background:linear-gradient(120deg,#f5efe9,#eee5df 50%,#f7f1ec)}
-.cover:after{content:"";position:absolute;inset:18px;border:1px solid var(--line);pointer-events:none}
 .topbar{z-index:5;display:flex;justify-content:center;align-items:center;padding:10px 5vw 0;font-size:.68rem;letter-spacing:.17em;text-transform:uppercase}
 .monogram{display:flex;align-items:center}.monogram img{height:74px;width:auto;display:block}
 /* The wordmark is inline SVG so the butterfly can be its own path and animate
@@ -155,7 +154,7 @@ footer{position:relative;overflow:hidden;background:#3c3734;color:#eee5df;text-a
 .footer-mark .mono-script,.footer-mark .mono-butterfly{fill:#eee5df}
 footer p{font-family:var(--script);font-size:2rem;color:#cdb8b0}.footer small{font-size:.5rem;letter-spacing:.2em;color:#958983}
 @media(max-width:800px){
-  .cover{min-height:650px}.cover:after{inset:10px}.topbar{padding:8px 8vw 0}
+  .cover{min-height:650px}.topbar{padding:8px 8vw 0}
   .cover-nav{gap:8px;margin-top:26px}.cover-nav a{padding:0 16px;font-size:.55rem;letter-spacing:.14em}
   .monogram img{height:58px}.butterfly{width:min(150px,40vw,18vh);margin-bottom:16px}
   .cover-copy .script{font-size:2.4rem}.cover-copy h1{font-size:3.2rem}.names{font-size:3.4rem}
