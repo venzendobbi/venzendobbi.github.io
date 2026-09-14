@@ -7,7 +7,7 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);overflow-x:hidden}
 a{text-decoration:none;color:inherit}button{font:inherit}
 .preloader{position:fixed;inset:0;background:var(--paper);z-index:99;display:grid;place-content:center;text-align:center;transition:.7s ease}
-.preloader img{width:140px;height:auto;opacity:.85}
+.preloader .monogram-mark{width:170px;height:auto;opacity:.9}
 .preloader.hide{opacity:0;visibility:hidden}
 /* justify-content centres monogram + butterfly + copy as one block, so the
    whitespace above the logo matches the whitespace below the arrow. */
