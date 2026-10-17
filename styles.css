@@ -126,6 +126,10 @@ h2 em{font-style:normal;color:var(--accent)}
 .map-section{position:relative;overflow:hidden;max-width:1100px;margin:0 auto 130px;padding:0 8vw;display:grid;grid-template-columns:minmax(220px,.7fr) 1.3fr;gap:40px;align-items:center}
 .map-section h2{margin-top:12px}
 .map-copy p:not(.micro){color:var(--muted);font-family:var(--serif);font-size:1.15rem;line-height:1.5;margin:0 0 18px}
+.stay{list-style:none;margin:0 0 22px;padding:0;border-top:1px solid var(--line)}
+.stay li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.stay span{font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.stay b{font-weight:500;font-size:.72rem;text-align:right}
 /* Spans the whole venue section rather than sitting in the narrow left column,
    which is the only way three of these fit side by side. */
 .travel{grid-column:1/-1;list-style:none;margin:48px 0 0;padding:0;
